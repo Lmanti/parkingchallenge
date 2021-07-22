@@ -1,0 +1,73 @@
+.container {
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    align-self: center;
+    justify-self: center;
+    padding: 10px 50px;
+    z-index: 10;
+    /* box-shadow: 0px 0px 10px rgba(165, 42, 42, 0.514); */
+    /* background-color: rgba(165, 42, 42, 0.452); */
+    backdrop-filter: blur(2px);
+    /* border: 1px solid black; */
+    /* border-radius: 5px; */
+    transition: all .3s;
+}
+
+.formChange {
+    top: 5px;
+}
+
+.input {
+    padding: 2%;
+    /* border: none; */
+    /* border-radius: 5px; */
+}
+
+.buttonSearch {
+    margin-left: 5px;
+    padding: 0% 2%;
+    border: 1px solid brown;
+    background-color: brown;
+    transition: all .3s;
+    color: wheat;
+}
+
+.buttonSearch:hover {
+    margin-top: -4px;
+    margin-bottom: -4px;
+    margin-left: 1px;
+    padding: 2% 4%;
+}
+
+.buttonContainer {
+    position: absolute;
+    bottom: 1%;
+    left: 47%;
+}
+
+.buttonContainer >button {
+    padding: 5px 10px;
+    margin: 0px 10px;
+    font-size: larger;
+    border: 1px solid brown;
+    background-color: brown;
+    color: wheat;    
+    transition: all .3s;
+}
+
+.buttonContainer >button:hover {
+    padding: 10px 15px;
+    margin: -5px 5px;
+}
+
+.error {
+    position: absolute;
+    bottom: 35%;
+    left: 45%;
+}
