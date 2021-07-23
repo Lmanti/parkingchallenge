@@ -18,7 +18,7 @@ const SearchBar = () => {
         if (input) {
             setLastSearch(input)
             setInput("")
-            return fetch(`http://localhost:3001/api/${input}/0`)
+            return fetch(`https://parkingsapi1.herokuapp.com/api/${input}/0`)
             .then(res => res.json())
             .then(json => setBusinesses(json))
         }
@@ -27,7 +27,7 @@ const SearchBar = () => {
     const next = () => {
         if (lastSearch) {
             setOffset(offset + changeValue)
-            return fetch(`http://localhost:3001/api/${lastSearch}/${offset + changeValue}`)
+            return fetch(`https://parkingsapi1.herokuapp.com/api/${lastSearch}/${offset + changeValue}`)
             .then(res => res.json())
             .then(json => setBusinesses(json))
         }
@@ -37,7 +37,7 @@ const SearchBar = () => {
         if (lastSearch) {
             if (offset > 0) {
                 setOffset(offset - changeValue)
-                return fetch(`http://localhost:3001/api/${lastSearch}/${offset - changeValue}`)
+                return fetch(`https://parkingsapi1.herokuapp.com/api/${lastSearch}/${offset - changeValue}`)
                 .then(res => res.json())
                 .then(json => setBusinesses(json))
             }
