@@ -47,7 +47,7 @@ const SearchBar = () => {
     return (
         <div className={style.container} >
             {
-                businesses.businesses && businesses.businesses.length && <div className={style.reminder} >Results for {`"${lastSearch}"`}:</div>
+                businesses.businesses && businesses.businesses.length && <div className={style.reminder} >{`${businesses.total}`} results for {`"${lastSearch}"`}:</div>
             }
             {
                 !businesses.businesses && !businesses.error && <h1>Find your Parking lot!</h1>
