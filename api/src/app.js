@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const errorHandler = require('./utils/middlewares/errorHandler.js');
 const setHeaders = require('./utils/middlewares/setHeaders.js');
+const cors = require('cors')
 
 const server = express();
 
@@ -14,10 +15,11 @@ server.use(express.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use(setHeaders);
+server.use(cors())
 
 server.use('/', routes);
 
-// Error catching endware.
+
 server.use(errorHandler);
 
 module.exports = server;

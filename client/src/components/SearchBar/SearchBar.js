@@ -17,10 +17,10 @@ const SearchBar = () => {
         e.preventDefault()
         if (input) {
             setLastSearch(input)
-            setInput("")
             return fetch(`https://parkingsapi1.herokuapp.com/api/${input}/0`)
             .then(res => res.json())
             .then(json => setBusinesses(json))
+            .then(setInput(""))
         }
     }
 
@@ -46,6 +46,9 @@ const SearchBar = () => {
 
     return (
         <div className={style.container} >
+            {
+                businesses.businesses && businesses.businesses.length && <div className={style.reminder} >Results for {`"${lastSearch}"`}:</div>
+            }
             {
                 !businesses.businesses && !businesses.error && <h1>Find your Parking lot!</h1>
             }

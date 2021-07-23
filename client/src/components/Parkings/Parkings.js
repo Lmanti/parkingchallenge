@@ -3,6 +3,9 @@ import style from './Parkings.module.css'
 import noImage from '../../img/noImage.png'
 
 const Parkings = ({businesses}) => {
+
+    businesses.sort((a, b) => a.rating - b.rating)
+
     return (
         <div className={style.container} >
             {

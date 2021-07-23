@@ -11,10 +11,15 @@ const getBusinesses = async (req, res) => {
         })
         .then(res => res.json())
         .then(json => businessesList = json)
-        if (businessesList) res.send(businessesList)
-        else res.send("<h1>There's something bad!</h1>")
+        try {
+            if (businessesList) {
+                res.send(businessesList)
+            }
+        } catch (error) {
+            res.send(error)
+        }
     } catch (error) {
-        res.send("<h1>There's something bad!</h1>")
+        res.send(error)
         console.log(error)
     }
 }

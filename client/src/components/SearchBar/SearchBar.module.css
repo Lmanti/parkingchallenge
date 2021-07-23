@@ -15,6 +15,14 @@
     backdrop-filter: blur(2px);
 }
 
+.reminder {
+    color: gold;
+    position: absolute;
+    z-index: 20;
+    top: 3%;
+    left: 25%;
+}
+
 .form {
     display: flex;
     position: absolute;
@@ -104,6 +112,14 @@
         font-family: 'Lobster', cursive;
         backdrop-filter: blur(2px);
     }
+
+    .reminder {
+        color: gold;
+        position: absolute;
+        z-index: 20;
+        top: 3%;
+        left: 14.8%;
+    }
     
     .form {
         display: flex;
@@ -125,6 +141,27 @@
 
     .formChange {
         top: 5px;
+    }
+
+    .buttonContainer {
+        position: absolute;
+        bottom: 1%;
+        left: 45%;
+    }
+
+    .buttonContainer >button {
+        padding: 5px 10px;
+        margin: 0px 10px;
+        font-size: larger;
+        border: 1px solid brown;
+        background-color: brown;
+        color: wheat;    
+        transition: all .3s;
+    }
+    
+    .buttonContainer >button:hover {
+        padding: 10px 15px;
+        margin: -5px 5px;
     }
 
     .error {
@@ -152,6 +189,15 @@
         font-size: 50px;
         font-family: 'Lobster', cursive;
         backdrop-filter: blur(2px);
+    }
+
+    .reminder {
+        color: gold;
+        position: absolute;
+        z-index: 20;
+        top: 3%;
+        left: 1%;
+        font-size: smaller;
     }
     
     .form {
