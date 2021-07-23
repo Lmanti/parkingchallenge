@@ -44,20 +44,20 @@ const SearchBar = () => {
         }
     }
 
-    console.log(input)
-    // console.log(offset)
-    // console.log(businesses)
-    // console.log(lastSearch)
-
     return (
         <div className={style.container} >
-            <form onSubmit={handleSubmit} className={businesses.businesses ? `${style.form} ${style.formChange}` : style.form} >
+            {
+                !businesses.businesses && !businesses.error && <h1>Find your Parking lot!</h1>
+            }
+            <form onSubmit={handleSubmit} className={businesses.businesses && businesses.businesses.length ? `${style.form} ${style.formChange}` : style.form} >
                 <input type="text" onChange={handleInput} className={style.input} value={input} placeholder="Enter a location..." ></input>
                 <button className={style.buttonSearch} >Search</button>
             </form>
-            <Parkings businesses={businesses.businesses} />
             {
-                businesses.businesses && <div className={style.buttonContainer} >
+                businesses.businesses && businesses.businesses.length && <Parkings businesses={businesses.businesses} />
+            }
+            {
+                businesses.businesses && businesses.businesses.length && <div className={style.buttonContainer} >
                 <button onClick={back} disabled={offset === 0 ? true : false} >{"<"}</button>
                 <button onClick={next} disabled={offset + changeValue >= businesses.total ? true : false} >{">"}</button>
             </div>
@@ -65,6 +65,11 @@ const SearchBar = () => {
             {
                 businesses.error && <div className={style.error} >
                     Oops! You wrote a bad location!
+                </div>
+            }
+            {
+                businesses.businesses && !businesses.businesses.length && <div className={`${style.error} ${style.errorLong}`} >
+                    Apparently this location has no parkings...
                 </div>
             }
         </div>

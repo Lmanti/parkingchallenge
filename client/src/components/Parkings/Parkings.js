@@ -18,12 +18,18 @@ const Parkings = ({businesses}) => {
                                 <div className={style.title} >
                                     <h2>{n.name}</h2>
                                 </div>
-                                <div>
+                                <div className={style.innerTextContainer} >
                                     <h4>Address: {n.location.display_address.join(", ")}</h4>
-                                    <h4>Rating: {n.rating} </h4>
+                                    <div>
+                                        <label name="1" className={ n.rating >= 1 ? `${style.star} ${style.starSelected}` : style.star} >★</label>
+                                        <label name="2" className={ n.rating >= 2 ? `${style.star} ${style.starSelected}` : style.star} >★</label>
+                                        <label name="3" className={ n.rating >= 3 ? `${style.star} ${style.starSelected}` : style.star} >★</label>
+                                        <label name="4" className={ n.rating >= 4 ? `${style.star} ${style.starSelected}` : style.star} >★</label>
+                                        <label name="5" className={ n.rating === 5 ? `${style.star} ${style.starSelected}` : style.star} >★</label>
+                                    </div>
                                     <h4>Reviews: {n.review_count} </h4>
-                                    <h4><a href={n.url} target="_blank" rel="noreferrer" >Visit Yelp page</a></h4>
-                                    <h4>Score: {Math.round((n.review_count * n.rating) / (n.review_count + 1) * 100) / 100} </h4>
+                                    <h4><a href={n.url} target="_blank" rel="noreferrer" className={style.link} >Visit Yelp page</a></h4>
+                                    <h4 className={style.score} >Score: {Math.round((n.review_count * n.rating) / (n.review_count + 1) * 100) / 100} </h4>
                                 </div>
                             </div>
                         </div>))

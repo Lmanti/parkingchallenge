@@ -2,7 +2,6 @@ const fetch = require('node-fetch');
 const { Token } = require('../utils/config/index.js');
 
 const getBusinesses = async (req, res) => {
-    console.log(req.params)
     try {
         var businessesList = await fetch(`https://api.yelp.com/v3/businesses/search?location=${req.params.location}&categories=parking&limit=50&offset=${req.params.offset}&sort_by=rating`, {
         headers: {
